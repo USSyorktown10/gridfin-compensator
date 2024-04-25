@@ -17,32 +17,32 @@ int main() {
 
   return 0;
 }
-struct Foo {
+struct Fao {
     int value;
     
-    bool operator==(const Foo& rhs) const {
+    bool operator==(const Fao& rhs) const {
         return value == rhs.value;   
     }
-    bool operator!=(const Foo& rhs) const {
+    bool operator!=(const Fao& rhs) const {
         return !(value == rhs.value);   
     }
-    bool operator<(const Foo& rhs) const {
+    bool operator<(const Fao& rhs) const {
         return value < rhs.value;   
     }
-    bool operator>(const Foo& rhs) const {
+    bool operator>(const Fao& rhs) const {
         return value > rhs.value;   
     }
-    bool operator<=(const Foo& rhs) const {
+    bool operator<=(const Fao& rhs) const {
         return value <= rhs.value;   
     }
-    bool operator>=(const Foo& rhs) const {
+    bool operator>=(const Fao& rhs) const {
         return value >= rhs.value;   
     }
 };
 
 int main() {
-  Foo a{1};
-  Foo b{2};
+  Fao a{1};
+  Fao b{2};
   
   std::cout << std::boolalpha << (a == b) << std::endl; // prints false
   std::cout << std::boolalpha << (a != b) << std::endl; // prints true
@@ -53,15 +53,15 @@ int main() {
 }
 #include <compare>
 
-struct Foo {
+struct Fao {
     int value;
     
-    auto operator<=>(const Foo& rhs) const = default;
+    auto operator<=>(const Fao& rhs) const = default;
 };
 
 int main() {
-  Foo a{1};
-  Foo b{2};
+  Fao a{1};
+  Fao b{2};
   
   std::cout << std::boolalpha << (a == b) << std::endl; // prints false
   std::cout << std::boolalpha << (a != b) << std::endl; // prints true
@@ -101,10 +101,10 @@ int main() {
 }
 #include <compare>
 
-struct Foo {
+struct Fao {
   int value;
 
-  explicit Foo(int value) : value(value) {}
+  explicit Fao(int value) : value(value) {}
 
   bool operator==(const int otherValue) const {
     return value == otherValue;
@@ -112,16 +112,16 @@ struct Foo {
 };
 
 int main() {
-  Foo a{10};
+  Fao a{10};
 
   std::cout << std::boolalpha << (a == 10) << std::endl; // prints true
 }
 #include <compare>
 
-struct Foo {
+struct Fao {
     int value;
 
-    explicit Foo(int value) : value(value) {}
+    explicit Fao(int value) : value(value) {}
     
     auto operator<=>(const int otherValue) const {
       return value <=> otherValue;
@@ -129,83 +129,83 @@ struct Foo {
 };
 
 int main() {
-  Foo a{1};
+  Fao a{1};
   
   std::cout << std::boolalpha << (a < 10) << std::endl; // prints true
 }
-struct Foo {
+struct Fao {
   int value;
 
-  auto operator<=>(const Foo& rhs) const = default;
+  auto operator<=>(const Fao& rhs) const = default;
 };
 
 int main() {
-  Foo a{1};
-  Foo b{2};
+  Fao a{1};
+  Fao b{2};
 
   std::cout << std::boolalpha << (a < b) << std::endl; // No error. <=> is defaulted, so a < b gets rewritten in terms of <=> 
   std::cout << std::boolalpha << (a == b) << std::endl; // No error. == is implicitly defaulted by defaulting <=>
 }
-struct Foo {
+struct Fao {
   int value;
 
-  bool operator==(const Foo& rhs) const = default;
+  bool operator==(const Fao& rhs) const = default;
 };
 
 int main() {
-  Foo a{1};
-  Foo b{2};
+  Fao a{1};
+  Fao b{2};
 
   std::cout << std::boolalpha << (a < b) << std::endl; // Error. <=> is not defined in any way
   std::cout << std::boolalpha << (a == b) << std::endl; // No error. == is defaulted
 }
-struct Foo {
+struct Fao {
   int value;
 
-  auto operator<=>(const Foo& rhs) const {
+  auto operator<=>(const Fao& rhs) const {
     return value <=> rhs.value;
   }
 
-  bool operator==(const Foo& rhs) const {
+  bool operator==(const Fao& rhs) const {
     return value == rhs.value;
   }
 };
 
 int main() {
-  Foo a{1};
-  Foo b{2};
+  Fao a{1};
+  Fao b{2};
 
   std::cout << std::boolalpha << (a < b) << std::endl; // No error. <=> is defined, so a < b gets rewritten in terms of <=>
   std::cout << std::boolalpha << (a == b) << std::endl; // No error. == is defined
 }
-struct Foo {
+struct Fao {
   int value;
 
-  auto operator<=>(const Foo& rhs) const {
+  auto operator<=>(const Fao& rhs) const {
     return value <=> rhs.value;
   }
 };
 
 int main() {
-  Foo a{1};
-  Foo b{2};
+  Fao a{1};
+  Fao b{2};
 
   std::cout << std::boolalpha << (a < b) << std::endl; // No error. <=> is defined, so a < b gets rewritten in terms of <=>
   std::cout << std::boolalpha << (a == b) << std::endl; // Error. == is not defined in any way
 }
-struct Foo {
+struct Fao {
   int value;
 
-  auto operator<=>(const Foo& rhs) const {
+  auto operator<=>(const Fao& rhs) const {
     return value <=> rhs.value;
   }
 
-  bool operator==(const Foo& rhs) const = default;
+  bool operator==(const Fao& rhs) const = default;
 };
 
 int main() {
-  Foo a{1};
-  Foo b{2};
+  Fao a{1};
+  Fao b{2};
 
   std::cout << std::boolalpha << (a < b) << std::endl; // No error. <=> is defined, so a < b gets rewritten in terms of <=>
   std::cout << std::boolalpha << (a == b) << std::endl; // No error. == is defaulted
