@@ -1,5 +1,7 @@
 # Gridfin Compensator
 Accelerometer to Gridfin for compensation of a Falcon 9 Block 1
+I make model rockets, and this is for a future steering system
+Just for everyone wondering: The FAO class means: Foldable AreoChanger Object
 
 # Things to do
 - [ ] Create Basic code
