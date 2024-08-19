@@ -5,7 +5,7 @@ Just for everyone wondering: The FAO class means: Foldable AreoChanger Object
 Foo is a secondary class of FAO, so it dosent stand for anything
 
 # Things to do
-- [ ] Create Basic code
+- [x] Create Basic code
 - [ ] Tweak based on real world tests
 - [ ] Calibrate for re-entry
 - [ ] Set it up with landing leg deployment
